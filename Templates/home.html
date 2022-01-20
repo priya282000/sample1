@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!--    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">-->
+<!--    <script-->
+<!--        src="https://code.jquery.com/jquery-3.1.1.min.js"-->
+<!--        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="-->
+<!--        crossorigin="anonymous"></script>-->
+<!--    <script src="semantic/dist/semantic.min.js"></script>-->
+    <title>Title</title>
+</head>
+<body>
+    <form method="post" action="{{url_for('index')}}">
+        {{ form.csrf_token }}
+        {{ form.task.label }}
+        {{ form.task }} <br>
+
+        <ul>
+           {% for error in form.task.errors %}
+                 <li style="color:red;">{{ error }}</li>
+            {% endfor %}
+        </ul>
+
+        {{ form.assignee.label }}
+        {{ form.assignee }} <br>
+        <ul>
+            {% for error in form.assignee.errors %}
+                <li style="color:red;">{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {{ form.email.label }}
+        {{ form.email }}<br>
+        <ul>
+            {% for error in form.email.errors %}
+                <li style="color:red;">{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {{ form.reporter.label }}
+        {{ form.reporter }}<br>
+        <ul>
+            {% for error in form.reporter.errors %}
+                <li style="color:red;">{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {{ form.due.label }}
+        {{ form.due }}<br>
+        <ul>
+            {% for error in form.due.errors %}
+                <li style="color:red;">{{ error }}</li>
+            {% endfor %}
+        </ul>
+        <input type="submit" value="submit">
+    </form>
+
+</body>
+</html>
